@@ -12,7 +12,7 @@ carries the binary artifact.
 ```swift
 // Package.swift
 dependencies: [
-  .package(url: "https://github.com/tunaformac/TunaKit", from: "1.10.0")
+  .package(url: "https://github.com/tunaformac/TunaKit", from: "1.11.0")
 ]
 ```
 
@@ -34,7 +34,6 @@ public final class MyExtension: Extension {
         displayName: "My Extension",
         author: "You",
         description: "Does a thing.",
-        categories: ["Utilities"],
         iconName: "sparkles"
       ),
       catalogs: [
