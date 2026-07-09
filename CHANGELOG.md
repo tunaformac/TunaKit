@@ -3,6 +3,12 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.11.0
+
+- **Breaking:** `ExtensionMetadata` no longer has a `categories` field — remove
+  the `categories:` argument from your declaration. Store categorization is
+  curated on the store side instead of self-declared.
+
 ## 1.10.0
 
 First release distributed as a public binary package (`tunaformac/TunaKit`).
