@@ -3,6 +3,23 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.12.0
+
+- **Breaking:** `CatalogReference(parsing:)` now accepts only canonical catalog
+  IDs and nonempty local item IDs without control characters. Catalog IDs must
+  match `[a-z0-9][a-z0-9._-]*`.
+- Added `CatalogReference.isCanonicalCatalogID(_:)` and
+  `CatalogReference.isCanonicalLocalID(_:)` so extensions can validate stable
+  identifiers consistently with Tuna.
+- Added `FileSystemCatalog.scanObjectTransformer`, an off-main-thread final
+  transformation for complete scan snapshots. Catalogs using it fall back to
+  full scans for watcher changes so the transformation receives authoritative
+  contents.
+- **Breaking:** `TextEditingKeyEquivalentResolver` is now main-actor isolated,
+  matching the AppKit window and application state it operates on.
+- Current Tuna hosts reject catalog snapshots containing malformed or duplicate
+  item IDs and allow dynamic catalogs to recover after a later valid scan.
+
 ## 1.11.0
 
 - **Breaking:** `ExtensionMetadata` no longer has a `categories` field — remove
