@@ -12,7 +12,7 @@ carries the binary artifact.
 ```swift
 // Package.swift
 dependencies: [
-  .package(url: "https://github.com/tunaformac/TunaKit", from: "1.11.0")
+  .package(url: "https://github.com/tunaformac/TunaKit", "1.12.0"..<"1.13.0")
 ]
 ```
 
@@ -36,6 +36,10 @@ public final class MyExtension: Extension {
         description: "Does a thing.",
         iconName: "sparkles"
       ),
+      compatibility: ExtensionDeclarationCompatibility(
+        minTuna: "0.79",
+        minTunaKit: "1.12.0"
+      ),
       catalogs: [
         CatalogDeclaration(
           id: "my.catalog",
@@ -49,10 +53,11 @@ public final class MyExtension: Extension {
 }
 ```
 
-Documentation, guides, and real first-party extension source live at:
+Documentation, guides, first-party extension source, and the public starter live at:
 
 - Docs: https://tunaformac.com/docs
-- Example extensions: https://github.com/tunaformac/TunaExtensions
+- First-party extensions: https://github.com/tunaformac/TunaExtensions
+- Extension starter: https://github.com/tunaformac/TunaExtensionTemplate
 
 ## Stability
 
@@ -62,5 +67,5 @@ changes can land in minor releases and are called out in
 
 ## License
 
-The TunaKit binary is © Brainbow and free to use for building Tuna extensions
-and themes.
+TunaKit is proprietary. Copyright © 2026 Mikkel Malmberg. All rights reserved.
+The compiled TunaKit binary is free to use for building Tuna extensions and themes.
