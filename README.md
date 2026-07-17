@@ -1,5 +1,10 @@
 # TunaKit
 
+> [!IMPORTANT]
+> This repository describes the extension platform planned for Tuna 0.79. Tuna 0.79 has not been
+> released yet; the current public app is Tuna 0.78, so treat the instructions, compatibility
+> versions, and examples below as a release preview.
+
 TunaKit is the framework for building extensions and themes for
 [Tuna](https://tunaformac.com), the macOS launcher.
 
