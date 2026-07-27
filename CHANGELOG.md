@@ -3,6 +3,46 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.13.0
+
+- **Breaking:** catalogs are now two sibling kinds. `Catalog` vends `objects` and
+  is a *source*: it feeds subject and target search, carries a search priority,
+  and is listed in Sources. The new `ActionCatalog` vends
+  `actions: [CatalogAction]` and is none of those things. It is not a refinement
+  of `Catalog`, so a catalog that mixes items and actions can no longer be
+  written. See ADR 0006.
+- **Breaking:** `ExtensionDeclaration` gains `actionCatalogs: [ActionCatalogDeclaration]`.
+  Action catalogs must be declared there, never in `catalogs`. `catalogs` now
+  defaults to `[]`, so an extension may contribute only actions. Both kinds share
+  one identifier namespace.
+- **Breaking:** `appActionEnrichments` and `defaultActionRankings` must reference
+  action catalogs. Naming a source catalog is a declaration error.
+- **Breaking:** app action enrichment is purely additive. Naming an action
+  catalog for an app no longer removes it from anywhere else — it only orders it
+  for that app. Where an action applies is decided solely by
+  `supportedSubjectTypes` and `subjectPredicate`. Extensions that mirrored their
+  actions through a search catalog to work around the old behavior should delete
+  the mirroring.
+- Action catalogs have no scan lifecycle: no `scan()`, no `reportScanFinished()`,
+  no retained-state release. They are built from an `ActionCatalogDefinition`,
+  which carries only an identifier and a name — no enablement, advanced flag, or
+  settings. A setting that configures a verb belongs in the extension's own
+  `settings`.
+- Added `ActionAvailabilityProviding`, for an action that cannot run under
+  current conditions — its app is not installed, a permission was refused, it has
+  nothing to operate on. Unavailable actions are filtered wherever actions are
+  matched to a subject. This replaces the scan-to-empty signal that action
+  catalogs no longer have. It is read during search, so keep it cheap.
+
+- Added `MainWindow.playTransition(_:duration:animations:finalState:completion:)`
+  and `MainWindow.AnimationDirection`. Themes that need their own show/hide
+  animations can now add them to the content layer while TunaKit keeps owning
+  the transition lifecycle: superseding an in-flight transition, the
+  `animationsEnabled` bypass, and ordering the window out after a hide.
+  `playShowAnimations` and `playHideAnimations` are wrappers over it and keep
+  their signatures; `playHideAnimations` now orders the window out itself when
+  the hide completes, so themes no longer have to.
+
 ## 1.12.0
 
 - **Breaking:** `CatalogReference(parsing:)` now accepts only canonical catalog
