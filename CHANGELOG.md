@@ -3,6 +3,11 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.14.0
+
+- Extension declaration validation now rejects default and preferred action references whose
+  action IDs are absent from their declared action catalogs.
+
 ## 1.13.0
 
 - **Breaking:** catalogs are now two sibling kinds. `Catalog` vends `objects` and
