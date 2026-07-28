@@ -1,7 +1,7 @@
 # TunaKit
 
 > [!IMPORTANT]
-> This repository describes the extension platform planned for Tuna 0.79. Tuna 0.79 has not been
+> This repository describes the extension platform planned for Tuna 0.80. Tuna 0.80 has not been
 > released yet; the current public app is Tuna 0.78, so treat the instructions, compatibility
 > versions, and examples below as a release preview.
 
@@ -17,7 +17,7 @@ carries the binary artifact.
 ```swift
 // Package.swift
 dependencies: [
-  .package(url: "https://github.com/tunaformac/TunaKit", "1.12.0"..<"1.13.0")
+  .package(url: "https://github.com/tunaformac/TunaKit", "1.14.0"..<"1.15.0")
 ]
 ```
 
@@ -42,8 +42,8 @@ public final class MyExtension: Extension {
         iconName: "sparkles"
       ),
       compatibility: ExtensionDeclarationCompatibility(
-        minTuna: "0.79",
-        minTunaKit: "1.12.0"
+        minTuna: "0.80",
+        minTunaKit: "1.14.0"
       ),
       catalogs: [
         CatalogDeclaration(
