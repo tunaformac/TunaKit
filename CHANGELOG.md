@@ -3,6 +3,18 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.15.0
+
+- Added reusable direct OAuth PKCE configuration, callback parsing, and authorization-code token
+  exchange APIs. Extension connection declarations can opt in while existing brokered OAuth
+  declarations continue to use the Tuna web broker unchanged.
+- Added per-hierarchy grid presentation configuration and preview-first grid items, including
+  custom column counts, cell sizing, and spacing.
+- Added `CatalogLoadingItem` for host-rendered indeterminate loading states.
+- Added action target search scopes with optional on-demand loading or per-selection catalog
+  refresh, allowing extensions to keep dynamic target collections lazy and current.
+- Fixed `TextSnippetItem` identity collisions between snippets sharing the same display title.
+
 ## 1.14.0
 
 - Extension declaration validation now rejects default and preferred action references whose

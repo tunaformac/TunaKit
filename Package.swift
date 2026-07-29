@@ -10,8 +10,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "TunaKit",
-      url: "https://github.com/tunaformac/TunaKit/releases/download/v1.14.0/TunaKit-1.14.0.xcframework.zip",
-      checksum: "553cc12591a2387bc7c1d8710f9309dd5c64d5b66c4bddedd51b0ebcfabcfb44"
+      url: "https://github.com/tunaformac/TunaKit/releases/download/v1.15.0/TunaKit-1.15.0.xcframework.zip",
+      checksum: "ab9a1292d332931be031e0aa5d31f6ee9735d89327c268ef9eec20c741645e0c"
     )
   ]
 )
