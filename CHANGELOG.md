@@ -3,6 +3,18 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.16.1
+
+- Fixed deferred browse entries without an explicit child presentation inheriting their catalog's
+  presentation instead of forcing a list.
+
+## 1.16.0
+
+- Added standard eager, deferred, and scoped-search browse entries that automatically make Browse
+  their default action.
+- Added optional per-hierarchy child presentation to `DeferredBrowseCatalogItem`, allowing lazy
+  browse entries to use configured grids.
+
 ## 1.15.0
 
 - Added reusable direct OAuth PKCE configuration, callback parsing, and authorization-code token
