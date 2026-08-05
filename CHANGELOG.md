@@ -3,6 +3,29 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.17.0
+
+- **Breaking:** `Runnable.run()`, `RunnableWithInput.run(with:)`, and catalog action callbacks are
+  now async. Action callbacks are main-actor isolated.
+- **Breaking:** `RunnableWithInput` now requires `acceptsInput`; the separate
+  `ShortcutAcceptsInput` marker protocol was removed.
+- **Breaking:** `Runnable` and `CommandItem` now declare `executionPolicy` and
+  `headlessEligibility`, separating post-command presentation from whether a command may safely run
+  without the launcher interface.
+- **Breaking:** removed the parallel `AsyncRunnable`, `AsyncCommandItem`, and
+  `AsyncActionProviding` APIs, along with runnable presentation hints and result-shape flags. Use
+  the unified async APIs and return the actual `ActionResult` instead.
+- **Breaking:** removed action initializers that accepted `Void` callbacks, the title-derived
+  `CommandItem` initializer, `DefaultActionIdentifier`, `ThemePreviewViewModel`, and the
+  `ScoreResult.catalogIdentifier` compatibility spelling. Actions must return an honest result;
+  command IDs and result provenance are explicit.
+- **Breaking:** `CatalogAction` and `PredicateAwareAction` initializers no longer accept
+  `type: .action`; action instances always use `.action`. The raw
+  `supportedSubjectTypeIdentifiers` and `allowedTargetTypeIdentifiers` properties were removed;
+  use their typed `TypeID` counterparts.
+- `AppLog` now exposes stable entry identities and change notifications for live diagnostic views;
+  release builds retain a bounded in-memory history of warnings and errors.
+
 ## 1.16.1
 
 - Fixed deferred browse entries without an explicit child presentation inheriting their catalog's
