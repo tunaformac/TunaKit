@@ -3,6 +3,17 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.18.0
+
+- **Breaking:** replaced the ambiguous `explicitTextValue()` and `textValueFallback()` helpers
+  with purpose-specific primary-content, text-input, automation, copy, and display representations.
+  `TextValueProviding` content is preserved exactly instead of being trimmed during extraction.
+- **Breaking:** `SolverResultItem.textValue` now returns the unformatted result. Use
+  `displayTextValue()` or `copyTextRepresentation()` when locale-aware formatting is wanted.
+- Added shared catalog-scan feedback and navigation-affordance symbols for themes.
+- `SearchObjectRole` now conforms to `Hashable` for stable role-based SwiftUI identity.
+- Corrected `playTransition` visibility to match its non-overridable extension implementation.
+
 ## 1.17.0
 
 - **Breaking:** `Runnable.run()`, `RunnableWithInput.run(with:)`, and catalog action callbacks are
