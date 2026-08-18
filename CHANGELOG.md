@@ -3,6 +3,13 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.19.0
+
+- Add on-demand catalog Quick Look
+- Prepare Tuna 0.91 release
+- Replace dictation label with timer
+- Remove dictation recording limit
+
 ## 1.18.0
 
 - **Breaking:** replaced the ambiguous `explicitTextValue()` and `textValueFallback()` helpers
