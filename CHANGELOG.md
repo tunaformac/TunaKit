@@ -3,6 +3,13 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.20.0
+
+- Added independent `CatalogItem.searchKeys` matching and match-evidence metadata for result rows.
+- Added the `dynamicSearchCatalogEntry` type so provider-backed roots default to Search while
+  retaining Browse.
+- Expanded theme preview controls and result presentation support.
+
 ## 1.19.0
 
 - Add on-demand catalog Quick Look
