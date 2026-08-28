@@ -3,6 +3,20 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.21.0
+
+- **Breaking:** `CatalogDeclaration` requires `presentation:` — `.source`,
+  `.browseRoot(contents:)`, `.liveSearch`, `.snapshot`, or `.hidden`. The `<id>.search` naming convention no
+  longer pairs catalogs; declare a browse root explicitly. A root's contents must be a `.source` or
+  `.snapshot` catalog of the same extension and may be claimed by one root only.
+  `CatalogDefinition` gains a matching `presentation` (default `.source`).
+- Added optional `CatalogDeclaration.description` / `CatalogDefinition.description`, shown under the
+  catalog's name in Settings → Sources.
+- `BrowseCatalogItem.catalogIcon` (also on the deferred and scoped-search variants) and
+  `CatalogIconColor.nsColor` are public, so hosts can reuse a root's symbol and tint.
+- Added `ActionResult.cancelled` for user-cancelled actions that should finish quietly without
+  entering command history.
+
 ## 1.20.0
 
 - Added independent `CatalogItem.searchKeys` matching and match-evidence metadata for result rows.
