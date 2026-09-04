@@ -3,6 +3,19 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.22.0
+
+- Added catalog item interaction callbacks for provider analytics when results appear, are
+  activated, disappear, or are successfully pasted.
+- Added `CatalogAsyncPreviewProviding.cachesAsyncPreview` so providers can opt out of Tuna's
+  in-memory preview cache when their content contract prohibits caching.
+- Added `CatalogInitialGlobalScope` and `CatalogDeclaration.initialGlobalScope` so extensions can
+  keep newly discovered sources out of global search by default.
+- Added `CatalogItemPreview.init(animatedImageData:)`. Selected grid items and detail previews now
+  play supported animated image formats while other results remain on their first frame.
+- Documented `PasteboardDataProviding` and `PasteboardDataRepresentation` as supported public API
+  for copying non-text pasteboard flavors.
+
 ## 1.21.0
 
 - **Breaking:** `CatalogDeclaration` requires `presentation:` — `.source`,
