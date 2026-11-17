@@ -3,6 +3,37 @@
 TunaKit is in beta: breaking API changes can land in minor releases (1.x → 1.y)
 and are called out here. A stability commitment comes with 2.0.
 
+## 1.23.0
+
+- `.secret` connections can declare extra `fields` (`CatalogSettingDefinition` strings, option
+  pickers, and Booleans). Tuna's connection editor shows them and stores the values in the new
+  `ExtensionConnectionRecord.fieldValues`; read them with `fieldValue(for:)` and
+  `boolFieldValue(for:)`. The original `ExtensionConnectionDefinition` initializers remain
+  available, and records saved by earlier versions load with no field values.
+- Added `ThemeDictationPaneStatus` and `DictationOverlayState.paneStatus` to share compact pane
+  badges and placeholder text without changing the existing overlay or theme scene APIs.
+- Host-projected `ThemeScene` now presents results or the inline Combo cheatsheet exclusively:
+  `results` is nil (and `resultsVisible` false) while `comboCheatsheet` is present. Existing public
+  properties and initializer entry points remain available.
+- Added `ResultsViewStyle.headerPlacement` and `headerFont` so themes can put the results header
+  below the list and size its text.
+- Added the `iconFitsVisibleBounds` environment value: `IconView` then scales image icons by their
+  opaque pixels, so app icons with built-in transparent margins line up with full-bleed artwork.
+- Preserved the original `ResultRowStyle` and styled `ResultRow` initializer entry points so
+  already-built themes can use the expanded framework without rebuilding.
+- Added `ResultRowFonts`, `ResultRowStyle.fonts`, and `ResultRowStyle.leadingDecoration` so
+  themes can restyle result rows and draw per-row index labels (`ResultRowDecorationContext`).
+  `ResultRow.index` supplies the row position, and `ResultsList` passes it automatically.
+- Dynamic items can implement `ActionConfigurationTypeProviding` so command builders offer actions
+  for every concrete type they may resolve to without resolving live data during configuration;
+  single-type `ActionSubjectResolving` items use their existing type automatically.
+- Shortcut items now inherit directly from entity instead of package, so filesystem-only actions
+  are no longer offered for Shortcuts app records.
+- Added `ScriptCommandMetadata.OutputMode.files` for staging newline-delimited file and folder
+  paths returned by scripts.
+- Preview providers that opt out of caching are no longer preloaded or shared across concurrent
+  display requests, keeping each rendered preview tied to its own load lifecycle.
+
 ## 1.22.0
 
 - Added catalog item interaction callbacks for provider analytics when results appear, are
